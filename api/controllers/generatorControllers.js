@@ -1,8 +1,10 @@
 const model = require('../models/generatorModels')
 
-getResponses((req, res, next) => {
+function getResponses(req, res, next) {
+  const responses = model.getAll()
 
-})
+  res.status(200).json({data: responses})
+}
 
 // createResponses((req, res, next) => {
 //
