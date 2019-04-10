@@ -1,5 +1,5 @@
 const db = require('../../db/knex.js')
-const knex = require('../../db/knex')
+// const knex = require('../../db/knex')
 const uuid = require('uuid/v4')
 
 const responses = []
@@ -20,11 +20,16 @@ function getAll () {
 }
 
 function create (name) {
+  console.log('hits create');
   const response = {id: uuid(), name}
   responses.push(response)
   return response
 }
 
+
+function insertDogs (dogs) {
+  
+}
 
 // create ((quote, rank, category) => {
 //   const response = {quote, rank, category}
@@ -43,5 +48,5 @@ function create (name) {
 // })
 
 module.exports = {
-  getAll,
+  getAll, create
 }
