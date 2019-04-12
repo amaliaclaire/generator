@@ -39,9 +39,25 @@ getDogBreeds()
 //
 const createResponseExample = (req, res, next) => {
   getDogBreeds().then(dogArray => {
-    let dogNames = dogArray.data.message
+    let schemaTable = [];
+    let dogNames = dogArray.data.message;
 
-    console.log(Object.keys(dogNames));
+
+    let dogNamesArray = Object.keys(dogNames);
+
+    let dogObject = dogNamesArray.reduce(function (acc, cur, i){
+      acc[i] = cur;
+      return acc;
+    }, {})
+
+    console.log(dogObject);
+
+    // console.log(dogNamesArray);
+
+    // console.log(dogNamesArray);
+    // console.log(Object.assign({}, dogNamesArray));
+
+    // console.log(dogNamesArray);
 
 
   })

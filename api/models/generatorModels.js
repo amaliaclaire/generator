@@ -1,5 +1,5 @@
-const db = require('../../db/knex.js')
-// const knex = require('../../db/knex')
+// const db = require('../../db/knex.js')
+const knex = require('../../db/knex')
 const uuid = require('uuid/v4')
 
 const responses = []
@@ -28,7 +28,8 @@ function create (name) {
 
 
 function insertDogs (dogs) {
-  
+  return knex('generator')
+  .insert(dogs)
 }
 
 // create ((quote, rank, category) => {
