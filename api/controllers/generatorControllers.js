@@ -3,9 +3,18 @@ const axios = require('axios')
 
 
 function getResponses(req, res, next) {
-  const responses = model.getAll()
-  res.status(200).json({data: responses})
+  console.log('model here');
+   model.getAll()
+  .then( responses => {
+    console.log('response', responses);
+    res.status(200).json({data: responses})
+
+  }).catch( err => {
+    console.error(err)
+  })
 }
+
+
 
 // function createResponse (req, res, next) {
 //   // const {response} = req.body
@@ -41,8 +50,6 @@ const createResponseExample = (req, res, next) => {
   getDogBreeds().then(dogArray => {
     let schemaTable = [];
     let dogNames = dogArray.data.message;
-
-
     let dogNamesArray = Object.keys(dogNames);
 
     let dogObject = dogNamesArray.reduce(function (acc, cur, i){
@@ -50,20 +57,22 @@ const createResponseExample = (req, res, next) => {
       return acc;
     }, {})
 
-    console.log(dogObject);
 
-    // console.log(dogNamesArray);
+console.log(dogObject);
 
-    // console.log(dogNamesArray);
-    // console.log(Object.assign({}, dogNamesArray));
+    // let dogResult = dogObject.map(item => {
+    //   const container = {};
+    //   console.log('item', item);
+    //
+    //
+    // })
 
-    // console.log(dogNamesArray);
+// just do a .map and then push it into an object
+    console.log(dogsResult);
+
 
 
   })
-
-
-
 
 
 

@@ -9,14 +9,10 @@ function getAll () {
   .select('*')
   .from('responses')
   .then((result) => {
-    console.log(result);
-    knex.destroy();
+   return result
   }).catch((err) => {
-    console.log(err);
-    knex.destroy();
-    process.exit(1)
+    return err
   })
-
 }
 
 function create (name) {
