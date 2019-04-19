@@ -15,12 +15,12 @@ function getAll () {
   })
 }
 
-function create (name) {
-  console.log('hits create');
-  const response = {id: uuid(), name}
-  responses.push(response)
-  return response
-}
+// function create (name) {
+//   console.log('hits create');
+//   const response = {id: uuid(), name}
+//   responses.push(response)
+//   return response
+// }
 
 
 function insertDogs (dogs) {
@@ -45,5 +45,5 @@ function insertDogs (dogs) {
 // })
 
 module.exports = {
-  getAll, create
+  getAll
 }
