@@ -19,9 +19,9 @@ function createResponse (req, res, next) {
   const response_id = responses.map(r => r.id)
 
 
-  if (!name) {
+  if (!name || !category || !rank) {
     return next ({
-      status: 400, 
+      status: 400,
       message: `response needed for quote, category, rank`
     })
   }
