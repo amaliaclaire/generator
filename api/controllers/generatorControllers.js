@@ -12,15 +12,27 @@ function getResponses(req, res, next) {
 }
 
 
-const createResponse = (req, res, next) => {
-  Responses.create(req.body).then(([responses]) => {
-    res.json(responses)
+function createResponse(req, res, next){
+  model.create()
+  .then( response => {
+    res.status(200).json({data: response})
+  }).catch( err => {
+    console.log(err);
   })
 }
 
 
 
 
+
+
+// function createResponse(req, res, next){
+//   Responses.create(body).then(([responses]) => {
+//     res.json(responses)
+//   }).catch( err => {
+//     console.log(err);
+//   })
+// }
 
 
 

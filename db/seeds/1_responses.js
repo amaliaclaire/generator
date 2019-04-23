@@ -5,7 +5,8 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('responses').insert([
         {
-          id: 1, quote: 'test',
+          id: 1,
+          quote: 'test',
           category: 'testcategory',
           rank: 'testrank'
         },

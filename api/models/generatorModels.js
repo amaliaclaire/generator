@@ -13,7 +13,25 @@ function getAll () {
   })
 }
 
+function create ({quote, category, rank}) {
+
+  const response = {
+    quote: req.body.quote,
+    category: req.body.category,
+    rank: req.body.rank
+   }
+
+
+  return knex('responses')
+  .insert(response)
+  .returning('*')
+}
+
+
+
+
+
 
 module.exports = {
-  getAll
+  getAll, create
 }
