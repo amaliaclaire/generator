@@ -8,4 +8,11 @@ getAll = () => {
         .catch(err => console.error(err))
 }
 
-module.exports = { getAll }
+createOne = (body) => {
+    return knex("responses")
+        .insert(body)
+        .then(result => result)
+        .catch(err => console.error(err))
+}
+
+module.exports = { getAll, createOne }
