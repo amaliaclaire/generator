@@ -1,7 +1,5 @@
-// const db = require('../../db/knex.js')
+const db = require('../../db/knex.js')
 const knex = require('../../db/knex')
-const uuid = require('uuid/v4')
-
 const responses = []
 
 function getAll () {
@@ -9,12 +7,11 @@ function getAll () {
   .select('*')
   .from('responses')
   .then((result) => {
-   return result
+    return result
   }).catch((err) => {
-    return err
+    console.log(err);
   })
 }
-
 
 
 module.exports = {
