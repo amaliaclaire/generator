@@ -26,8 +26,11 @@ updateResponses = (req, res, next) => {
         .catch(err => console.error(err))
 }
 
-// deleteResponses((req, res, next) => {
+deleteResponses = (req, res, next) => {
+    if (!req.params.id) res.status(500).send('ID Needed.')
+    model.deleteOne(req.params)
+        .then(result => res.status(200).send('Row ' + req.params.id + ' was deleted.'))
+        .catch(err => console.error(err))
+}
 
-// })
-
-module.exports = { getResponses, createResponses, updateResponses }
+module.exports = { getResponses, createResponses, updateResponses, deleteResponses }

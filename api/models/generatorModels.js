@@ -23,4 +23,12 @@ updateOne = (id, body) => {
         .catch(err => console.error(err))
 }
 
-module.exports = { getAll, createOne, updateOne }
+deleteOne = (id) => {
+    return knex('responses')
+        .where(id)
+        .del()
+        .then(result => result)
+        .catch(err => console.error(err))
+}
+
+module.exports = { getAll, createOne, updateOne, deleteOne }
