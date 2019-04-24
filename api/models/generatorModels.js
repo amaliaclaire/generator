@@ -15,4 +15,12 @@ createOne = (body) => {
         .catch(err => console.error(err))
 }
 
-module.exports = { getAll, createOne }
+updateOne = (id, body) => {
+    return knex('responses')
+        .where(id)
+        .update(body)
+        .then(result => result)
+        .catch(err => console.error(err))
+}
+
+module.exports = { getAll, createOne, updateOne }
