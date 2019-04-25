@@ -1,9 +1,10 @@
 const knex = require("../../db/knex")
 const uuid = require("uuid/v4")
 
-getAll = () => {
+getSome = (body) => {
     return knex("responses")
         .select("quote")
+        .where(body)
         .then(result => result)
         .catch(err => console.error(err))
 }
@@ -31,4 +32,4 @@ deleteOne = (id) => {
         .catch(err => console.error(err))
 }
 
-module.exports = { getAll, createOne, updateOne, deleteOne }
+module.exports = { getSome, createOne, updateOne, deleteOne }

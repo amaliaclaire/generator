@@ -1,7 +1,7 @@
 const model = require("../models/generatorModels")
 
 getResponses = (req, res, next) => {
-    model.getAll()
+    model.getSome(req.body)
         .then(quotes => res.status(200).send({ quotes }))
         .catch(err => console.error(err))
 }
