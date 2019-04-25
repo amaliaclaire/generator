@@ -11,6 +11,12 @@ module.exports = {
         seeds: {
             directory: path.join(__dirname, "db", "seeds")
         }
+
+  development: {
+    client: 'pg',
+    connection: 'postgres://localhost/generator',
+    migrations: {
+      directory: path.join(__dirname, 'db', 'migrations')
     },
 
     test: {
@@ -22,6 +28,11 @@ module.exports = {
         seeds: {
             directory: path.join(__dirname, "db", "seeds")
         }
+  test: {
+    client: 'pg',
+    connection: 'postgres://localhost/generator',
+    migrations: {
+      directory: path.join(__dirname, 'db', 'migrations')
     },
 
     production: {
@@ -34,4 +45,6 @@ module.exports = {
             directory: path.join(__dirname, "db", "seeds")
         }
     }
+
+  }
 }

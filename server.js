@@ -11,6 +11,12 @@ app.use(bodyParser.json())
 
 const responsesRoutes = require("./api/routes/generatorRoutes")
 app.use("/responses", responsesRoutes)
+app.disable('x-powered-by')
+app.use(morgan('dev'))
+app.use(bodyParser.json())
+
+const responsesRoutes = require('./api/routes/generatorRoutes')
+app.use('/responses', responsesRoutes)
 
 app.use((err, req, res, next) => {
     console.error(err)
@@ -18,9 +24,9 @@ app.use((err, req, res, next) => {
     res.status(status).json({ error: err.message })
 })
 
+const listener = () => console.log(`listening on port ${port}`)
+app.listen(port, listener)
+
 app.use((req, res, next) => {
     res.status(404).json({ error: { message: "Not Found" } })
 })
-
-const listener = () => console.log(`listening on port ${port}`)
-app.listen(port, listener)

@@ -6,5 +6,8 @@ router.get('/', ctrl.getResponses)
 router.post('/', ctrl.createResponses)
 router.put('/', ctrl.updateResponses)
 router.delete('/:id', ctrl.deleteResponses)
+router.post('/', ctrl.createResponse)
+// router.update('/', ctrl.updateResponses)
+// router.delete('/:id', ctrl.deleteResponses)
 
-module.exports = router 
+module.exports = router
